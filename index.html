@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!-- ===== META: ENCODING / VIEWPORT / SEO / OPEN GRAPH ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phạm Đăng Khoa — Vibe Coder | CapCut Creator | TikTok Creator</title>
+  <meta name="description" content="Portfolio cá nhân của Phạm Đăng Khoa — Vibe Coder, CapCut Creator và TikTok Content Creator. Thuần HTML5 &amp; CSS3, không JavaScript.">
+  <meta name="keywords" content="Phạm Đăng Khoa, portfolio, vibe coding, CapCut, TikTok, HTML5, CSS3, cơ sở dữ liệu">
+  <meta name="author" content="Phạm Đăng Khoa">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Phạm Đăng Khoa — Portfolio">
+  <meta property="og:description" content="Vibe Coder | CapCut Creator | TikTok Content Creator">
+  <meta property="og:image" content="asset/avatar.jpg">
+  <meta property="og:locale" content="vi_VN">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Font Roboto (Google Fonts, chỉ là font, không phải JS/framework) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =====================================================
+       A. WELCOME MODAL (Checkbox Hack)
+       Checkbox PHẢI nằm ngay dưới <body>, là anh em (sibling)
+       của .welcome-overlay để selector ~ hoạt động.
+       Mặc định "checked" => modal hiện. Bấm label => đóng.
+       ===================================================== -->
+  <input type="checkbox" id="welcome-modal-toggle" class="sr-only" checked aria-hidden="true">
+
+  <div class="welcome-overlay" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+    <div class="welcome-modal">
+      <span class="welcome-wave" aria-hidden="true">👋</span>
+      <h2 id="welcome-title">Phạm Đăng Khoa đã gửi lời chào đến bạn!</h2>
+      <p>Cảm ơn bạn đã ghé thăm trang portfolio của mình.</p>
+      <label for="welcome-modal-toggle" class="btn btn-primary" role="button" tabindex="0">Khám phá ngay</label>
+    </div>
+  </div>
+
+  <!-- Nền ambient phía sau toàn trang -->
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <!-- =====================================================
+       B. HEADER + NAVIGATION (Sticky, Glass, Hamburger CSS)
+       ===================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo" aria-label="KHOA.DEV - Về trang đầu">KHOA<span>.DEV</span></a>
+
+      <!-- Hamburger: checkbox + label (3 vạch -> X) -->
+      <input type="checkbox" id="nav-toggle" class="sr-only" aria-label="Mở menu điều hướng">
+      <label for="nav-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="#home">Trang chủ</a></li>
+          <li><a href="#projects">Dự án</a></li>
+          <li><a href="#studio">Studio</a></li>
+          <li><a href="#skills">Kỹ năng</a></li>
+          <li><a href="#playlist">Playlist</a></li>
+          <li><a href="#contact" class="nav-cta">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section id="home" class="hero container">
+      <div class="hero-text">
+        <p class="eyebrow">&lt;hello world /&gt;</p>
+
+        <!-- Hiệu ứng đánh máy: mỗi dòng gõ lần lượt (typing + blink-caret) -->
+        <h1 class="typing-block" aria-label="Mình là Phạm Đăng Khoa — Vibe Coder | CapCut Creator | TikTok Content Creator">
+          <span class="type-line t1" aria-hidden="true">Mình là Phạm Đăng Khoa —</span>
+          <span class="type-line t2" aria-hidden="true">Vibe Coder | CapCut Creator</span>
+          <span class="type-line t3" aria-hidden="true">| TikTok Content Creator</span>
+        </h1>
+
+        <p class="hero-desc">
+          Mình biến ý tưởng thành sản phẩm số: lập trình bằng "vibe", thiết kế cơ sở dữ liệu gọn gàng
+          và dựng video ngắn bắt trend trên CapCut &amp; TikTok.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">Xem dự án</a>
+          <a href="#contact" class="btn btn-ghost">Liên hệ mình</a>
+        </div>
+      </div>
+
+      <!-- Avatar hình học với viền gradient xoay -->
+      <div class="avatar-wrap">
+        <div class="avatar-frame">
+          <img src="asset/avatar.jpg" alt="Ảnh đại diện Phạm Đăng Khoa" width="320" height="320">
+        </div>
+        <span class="float-chip chip-1">HTML5</span>
+        <span class="float-chip chip-2">CSS3</span>
+        <span class="float-chip chip-3">CapCut</span>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 1: VIBE CODING PROJECTS (3D Flip Card)
+         ===================================================== -->
+    <section id="projects" class="section container">
+      <header class="section-head">
+        <p class="eyebrow">01 / Dự án</p>
+        <h2>Vibe Coding &amp; <span class="grad-text">Dev Projects</span></h2>
+        <p>Di chuột (hoặc chạm / Tab) vào thẻ để lật xem chi tiết.</p>
+      </header>
+
+      <div class="grid-projects">
+        <article class="flip-card" tabindex="0" aria-label="Dự án Portfolio Pure CSS">
+          <div class="flip-inner">
+            <!-- Mặt trước -->
+            <div class="flip-face flip-front">
+              <img src="asset/dev-project-preview.jpg" alt="Ảnh demo dự án Portfolio Pure CSS" loading="lazy" width="600" height="340">
+              <div class="flip-info">
+                <h3>Portfolio Pure CSS</h3>
+                <ul class="tags">
+                  <li>HTML5</li><li>Modern CSS</li><li>CSDL</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Mặt sau -->
+            <div class="flip-face flip-back">
+              <h3>Giải pháp &amp; Triết lý</h3>
+              <p>Website tương tác hoàn toàn bằng CSS: modal, menu, flip card, không một dòng JavaScript. Nhẹ, nhanh, dễ bảo trì.</p>
+              <p class="quote">"Vibe coding: mô tả ý tưởng rõ ràng, để AI lo phần lặp lại, mình giữ phần tư duy."</p>
+              <div class="flip-actions">
+                <a href="#" class="btn btn-primary btn-sm">Demo</a>
+                <a href="#" class="btn btn-ghost btn-sm">Source Code</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 2: CAPCUT & TIKTOK STUDIO (Video 9:16)
+         ===================================================== -->
+    <section id="studio" class="section container">
+      <header class="section-head">
+        <p class="eyebrow">02 / Studio</p>
+        <h2>Creative <span class="grad-text">CapCut &amp; TikTok</span> Studio</h2>
+        <p>Video dọc 9:16 chuẩn TikTok / Reels. Rê chuột để viền neon bừng sáng.</p>
+      </header>
+
+      <div class="grid-videos">
+        <article class="video-card" tabindex="0">
+          <div class="video-frame">
+            <video src="asset/capcut-preview.mp4" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video>
+            <div class="video-overlay" aria-hidden="true">
+              <span class="play-icon">▶</span>
+              <span class="badge-live">CapCut</span>
+            </div>
+          </div>
+          <div class="video-meta">
+            <h3>Cinematic Edit #1</h3>
+            <p>Transition mượt, màu film, nhạc bắt nhịp.</p>
+          </div>
+        </article>
+
+        <article class="video-card" tabindex="0">
+          <div class="video-frame">
+            <video src="asset/capcut-preview-2.mp4" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video>
+            <div class="video-overlay" aria-hidden="true">
+              <span class="play-icon">▶</span>
+              <span class="badge-live">TikTok</span>
+            </div>
+          </div>
+          <div class="video-meta">
+            <h3>Trend Remix #2</h3>
+            <p>Nội dung ngắn, hook mạnh trong 3 giây đầu.</p>
+          </div>
+        </article>
+
+        <article class="video-card" tabindex="0">
+          <div class="video-frame">
+            <video src="asset/capcut-preview-3.mp4" autoplay muted loop playsinline preload="metadata" disablepictureinpicture></video>
+            <div class="video-overlay" aria-hidden="true">
+              <span class="play-icon">▶</span>
+              <span class="badge-live">Reels</span>
+            </div>
+          </div>
+          <div class="video-meta">
+            <h3>Story Cut #3</h3>
+            <p>Kể chuyện bằng hình ảnh, nhịp dựng nhanh.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 3: SKILLS
+         ===================================================== -->
+    <section id="skills" class="section container">
+      <header class="section-head">
+        <p class="eyebrow">03 / Chuyên môn</p>
+        <h2>Skills &amp; <span class="grad-text">Chuyên Môn</span></h2>
+      </header>
+
+      <div class="grid-skills">
+        <article class="skill-card" style="--lvl: 90%; --glow: var(--accent-cyan);">
+          <div class="skill-icon" aria-hidden="true">&lt;/&gt;</div>
+          <h3>Vibe Code</h3>
+          <p>Xây giao diện nhanh bằng prompt, tinh chỉnh bằng tay.</p>
+          <div class="bar"><span></span></div>
+          <ul class="badges"><li>HTML5</li><li>CSS3</li><li>AI Prompt</li></ul>
+        </article>
+
+        <article class="skill-card" style="--lvl: 80%; --glow: var(--accent-violet);">
+          <div class="skill-icon" aria-hidden="true">⛁</div>
+          <h3>Cơ Sở Dữ Liệu (CSDL)</h3>
+          <p>Thiết kế ERD, chuẩn hoá bảng, truy vấn SQL hiệu quả.</p>
+          <div class="bar"><span></span></div>
+          <ul class="badges"><li>SQL</li><li>ERD</li><li>Chuẩn hoá</li></ul>
+        </article>
+
+        <article class="skill-card" style="--lvl: 92%; --glow: var(--accent-mint);">
+          <div class="skill-icon" aria-hidden="true">✂</div>
+          <h3>CapCut Creator</h3>
+          <p>Dựng video, hiệu ứng, phụ đề, template bắt trend.</p>
+          <div class="bar"><span></span></div>
+          <ul class="badges"><li>Editing</li><li>Effects</li><li>Template</li></ul>
+        </article>
+
+        <article class="skill-card" style="--lvl: 85%; --glow: #ff3d81;">
+          <div class="skill-icon" aria-hidden="true">♪</div>
+          <h3>Nhà Sáng Tạo TikTok</h3>
+          <p>Lên ý tưởng, kịch bản ngắn và tối ưu nội dung lan toả.</p>
+          <div class="bar"><span></span></div>
+          <ul class="badges"><li>Content</li><li>Trend</li><li>Storytelling</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 4: PLAYLIST (Spotify style)
+         ===================================================== -->
+    <section id="playlist" class="section container">
+      <header class="section-head">
+        <p class="eyebrow">04 / Playlist</p>
+        <h2>My <span class="grad-text">Favorite Tracks</span></h2>
+      </header>
+
+      <ol class="playlist">
+        <li class="track">
+          <span class="track-no">1</span>
+          <img class="track-thumb" src="asset/song1.jpg" alt="Bìa bài hát Come My Way" loading="lazy" width="56" height="56">
+          <div class="track-info">
+            <strong>Come My Way (Soft Version)</strong>
+            <span class="vibe-tag">Chill · Soft</span>
+          </div>
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <time class="track-time" datetime="PT3M12S">3:12</time>
+        </li>
+        <li class="track">
+          <span class="track-no">2</span>
+          <img class="track-thumb" src="asset/song2.jpg" alt="Bìa bài hát Đao Của Anh Vừa" loading="lazy" width="56" height="56">
+          <div class="track-info">
+            <strong>Đao Của Anh Vừa</strong>
+            <span class="vibe-tag">Trending · Vibe</span>
+          </div>
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <time class="track-time" datetime="PT2M48S">2:48</time>
+        </li>
+        <li class="track">
+          <span class="track-no">3</span>
+          <img class="track-thumb" src="asset/song3.jpg" alt="Bìa bài hát WrongTime" loading="lazy" width="56" height="56">
+          <div class="track-info">
+            <strong>WrongTime</strong>
+            <span class="vibe-tag">Lo-fi · Night</span>
+          </div>
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <time class="track-time" datetime="PT3M30S">3:30</time>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =====================================================
+         SECTION 5: CTA + CHATBOX MOCKUP
+         ===================================================== -->
+    <section id="contact" class="section container cta">
+      <div class="cta-text">
+        <h2 class="bounce-title">Bắt đầu ý tưởng của bạn ngay bằng cách liên hệ với mình!</h2>
+        <p>Có dự án web, video CapCut hay nội dung TikTok? Nhắn mình, mình phản hồi sớm nhất có thể.</p>
+        <ul class="contact-list">
+          <li><a href="tel:+84000000000" class="contact-pill">📞 0000 000 000</a></li>
+          <li><a href="https://zalo.me/0000000000" class="contact-pill zalo-pill" target="_blank" rel="noopener">Zalo · Chat ngay</a></li>
+        </ul>
+      </div>
+
+      <!-- Chatbox mô phỏng (chưa gắn backend/JS) -->
+      <div class="chatbox" aria-label="Khung chat mô phỏng">
+        <div class="chat-head">
+          <span class="chat-avatar" aria-hidden="true">K</span>
+          <div><strong>Khoa</strong><small><i class="dot"></i> Đang online</small></div>
+        </div>
+        <div class="chat-body">
+          <p class="bubble bubble-in">Chào bạn 👋 Mình là Khoa!</p>
+          <p class="bubble bubble-in">Bạn muốn làm web hay video? Nhắn mình nhé.</p>
+          <p class="bubble bubble-out">Mình muốn làm portfolio!</p>
+          <p class="bubble bubble-in typing-dots" aria-hidden="true"><i></i><i></i><i></i></p>
+        </div>
+        <form class="chat-input" action="#">
+          <label for="chat-msg" class="sr-only">Nhập tin nhắn</label>
+          <input id="chat-msg" type="text" placeholder="Nhập tin nhắn..." autocomplete="off">
+          <button type="button" class="send-btn" aria-label="Gửi">➤</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================
+       D. FOOTER
+       ===================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo">KHOA<span>.DEV</span></a>
+      <address>
+        <a href="tel:+84000000000">📞 0000 000 000</a>
+        <a href="https://zalo.me/0000000000" target="_blank" rel="noopener">Zalo</a>
+      </address>
+      <p>© 2026 Pham Dang Khoa. All rights reserved. Crafted with Pure HTML &amp; CSS.</p>
+    </div>
+    <div class="footer-glow" aria-hidden="true"></div>
+  </footer>
+
+</body>
+</html>
